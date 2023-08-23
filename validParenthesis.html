@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  function isValidParintheses(str) {
+   if (str.length % 2 !== 0){
+return false;
+    } else {
+        
+    
+    let arr = [];
+    for (let i = 0; i < str.length; i++) {
+    
+        if( str[i] == "("){
+            arr.push(str[i])
+        }
+        else if(str[i] == "{" ){
+            arr.push(str[i])
+        }
+        else if(str[i] == "["){
+            arr.push(str[i])
+        }
+        else if(
+        (str[i] == ")" && arr.pop() !== "(") ||
+        (str[i] == "}" && arr.pop() !== "{") ||
+       ( str[i] == "]" && arr.pop() !== "[")
+       )
+       {
+            return false;
+        }
+    }
+    return arr.length == 0;
+}
+  }
+  console.log(isValidParintheses("(){}[]"));
+</script>
